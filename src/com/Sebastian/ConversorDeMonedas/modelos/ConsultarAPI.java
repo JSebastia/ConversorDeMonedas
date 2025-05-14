@@ -1,5 +1,6 @@
 package com.Sebastian.ConversorDeMonedas.modelos;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -19,7 +20,7 @@ public class ConsultarAPI {
         client = HttpClient.newHttpClient();
     }
 
-    public void pedirDatosAPI() {
+    public void pedirDatosAPI() throws IOException, InterruptedException {
         //HttpRequest se encarga de realizar la petición al servidor con los detalles solicitados.
         request = HttpRequest.newBuilder().uri(URI.create(direccionURI)).build();
         //HttpRespose se encarga de recibir la respuesta de la petición (recibe los datos entregados por el servidor).
