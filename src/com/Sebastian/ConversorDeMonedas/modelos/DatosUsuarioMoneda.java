@@ -14,13 +14,14 @@ public class DatosUsuarioMoneda {
         this.equivalenciaMonedaConvertida = monedaExchangeRateAPI.conversion_rate();
         this.montoConvertido = monedaExchangeRateAPI.conversion_result();
     }
-    public void mostrarDatosMoneda(double montoPedido) {
+    public void mostrarDatosMoneda(double montoPedido, String paisIngresado, String paisConvertido) {
         String datos = """
-                Conversión de Moneda %s ------> Moneda %s.
+                ---------------
+                Conversión de Moneda %s (%s) ------> Moneda %s (%s).
                 1 %s equivale a %f %s.
                 Conversión: %f %s equivale a %f %s.
-                """.formatted(monedaIngresada, monedaConvertida, monedaIngresada, equivalenciaMonedaConvertida,
-                monedaConvertida, montoPedido, monedaIngresada, montoConvertido, monedaConvertida);
+                ---------------""".formatted(paisIngresado, monedaIngresada, paisConvertido, monedaConvertida, monedaIngresada, equivalenciaMonedaConvertida,
+                                                                   monedaConvertida, montoPedido, monedaIngresada, montoConvertido, monedaConvertida);
         System.out.println(datos);
     }
 }
